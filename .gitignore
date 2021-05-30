@@ -1,9 +1,4 @@
 # Project exclude paths
-/my-boot-launcher/target/
-/my-domain1-dao/target/
-/my-domain1-entities/target/
-/my-domain1-jpa-entities/target/
-/my-domain1-rest/target/
-/my-domain1-rest-model/target/
-/my-domain1-services/target/
 /.idea/
+/**/target/
+/**/*.iml

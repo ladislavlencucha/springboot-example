@@ -22,16 +22,32 @@
 		<mapstruct.version>1.4.2.Final</mapstruct.version>
 		<h2.version>1.4.200</h2.version>
 		<swagger.version>3.0.0</swagger.version>
+		<guava.version>30.1-jre</guava.version>
+		<querydsl.version>3.7.4</querydsl.version>
 	</properties>
 
 	<modules>
-		<module>my-domain1-rest-model</module>
-		<module>my-domain1-services</module>
-		<module>my-domain1-dao</module>
-		<module>my-domain1-jpa-entities</module>
-		<module>my-domain1-rest</module>
+		<module>my-common/my-common-rest-model</module>
+		<module>my-common/my-common-security</module>
+		<module>my-common/my-common-settings</module>
+		<module>my-common/my-common-settings-hardcoded</module>
+		<module>my-common</module>
+		<module>my-domain1/my-domain1-rest-model</module>
+		<module>my-domain1/my-domain1-services</module>
+		<module>my-domain1/my-domain1-dao</module>
+		<module>my-domain1/my-domain1-jpa-entities</module>
+		<module>my-domain1/my-domain1-rest</module>
+		<module>my-domain1</module>
+		<module>my-domain2/my-domain2-rest-model</module>
+		<module>my-domain2/my-domain2-services</module>
+		<module>my-domain2/my-domain2-dao</module>
+		<module>my-domain2/my-domain2-jpa-entities</module>
+		<module>my-domain2/my-domain2-rest</module>
+		<module>my-domain2</module>
 		<module>my-boot-launcher</module>
-		<module>my-domain1-entities</module>
+		<module>my-common/my-common-dao</module>
+		<module>my-common/my-common-jpa-entities</module>
+		<module>my-common/my-common-entities</module>
 	</modules>
 
 	<dependencyManagement>
@@ -88,6 +104,11 @@
 			<!-- end::tests[] -->
 
 			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>${guava.version}</version>
+			</dependency>
+			<dependency>
 				<groupId>org.projectlombok</groupId>
 				<artifactId>lombok</artifactId>
 				<version>${lombok.version}</version>
@@ -97,6 +118,21 @@
 				<groupId>org.mapstruct</groupId>
 				<artifactId>mapstruct</artifactId>
 				<version>${mapstruct.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.mysema.querydsl</groupId>
+				<artifactId>querydsl-core</artifactId>
+				<version>${querydsl.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.mysema.querydsl</groupId>
+				<artifactId>querydsl-apt</artifactId>
+				<version>${querydsl.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.mysema.querydsl</groupId>
+				<artifactId>querydsl-jpa</artifactId>
+				<version>${querydsl.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
@@ -110,6 +146,28 @@
 	</dependencies>
 
 	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>com.mysema.maven</groupId>
+					<artifactId>apt-maven-plugin</artifactId>
+					<version>1.1.3</version>
+					<executions>
+						<execution>
+							<goals>
+								<goal>process</goal>
+							</goals>
+							<configuration>
+								<!-- Specifies the directory in which the query types are generated -->
+								<outputDirectory>target/generated-sources/querydsl</outputDirectory>
+								<!-- States that the APT code generator should look for JPA annotations -->
+								<processor>com.mysema.query.apt.jpa.JPAAnnotationProcessor</processor>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
