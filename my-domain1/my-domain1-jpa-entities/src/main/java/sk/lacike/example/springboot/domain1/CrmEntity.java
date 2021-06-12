@@ -1,15 +1,16 @@
 package sk.lacike.example.springboot.domain1;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import lombok.Data;
-import sk.lacike.example.springboot.common.Entity;
+import sk.lacike.example.springboot.common.BasicEntity;
 
-@javax.persistence.Entity
+@Entity
 @Data
-public class CrmEntity implements Entity<Integer> {
+public class CrmEntity implements BasicEntity<Integer> {
 
 	@Id
 	@GeneratedValue(strategy= GenerationType.AUTO)

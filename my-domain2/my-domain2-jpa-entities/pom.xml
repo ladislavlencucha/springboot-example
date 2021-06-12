@@ -19,6 +19,13 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>sk.lacike.example.springboot</groupId>
+			<artifactId>my-domain1-jpa-entities</artifactId>
+			<version>${project.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
 		</dependency>

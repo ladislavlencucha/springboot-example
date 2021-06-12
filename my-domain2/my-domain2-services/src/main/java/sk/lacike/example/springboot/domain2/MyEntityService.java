@@ -12,41 +12,44 @@ import org.springframework.stereotype.Service;
 @Service
 public class MyEntityService {
 
-	private final MyEntityRepository repository;
+	private final PurchaseOrderRepository repository;
 
 	@Autowired
-	public MyEntityService(MyEntityRepository repository) {
+	public MyEntityService(PurchaseOrderRepository repository) {
 		this.repository = repository;
 	}
 
 	@Transactional
-	public MyEntityBO save(MyEntityBO entityBO) {
-		MyEntity saved = repository.save(convert(entityBO));
+	public PurchaseOrderBO save(PurchaseOrderBO entityBO) {
+		PurchaseOrder saved = repository.save(convert(entityBO));
 
 		return convert(saved);
 	}
 
-	public List<MyEntityBO> findAll() {
+	public List<PurchaseOrderBO> findAll() {
 		return convert(repository.findAll());
-
 	}
 
-	public MyEntityBO findById(Integer id) {
+	public List<PurchaseOrderBO> findByOwnerId(Integer ownerId) {
+		return convert(repository.findByOwnerId(ownerId));
+	}
+
+	public PurchaseOrderBO findById(Integer id) {
 		return convert(repository.findById(id)
 			.orElseThrow(() -> new IllegalArgumentException("MyEntity not found by id=" + id)));
 	}
 
-	private MyEntity convert(MyEntityBO entityBO) {
+	private PurchaseOrder convert(PurchaseOrderBO entityBO) {
 		return entityBO.unwrap();
 	}
 
-	private MyEntityBO convert(MyEntity entity) {
-		return new MyEntityBO(entity);
+	private PurchaseOrderBO convert(PurchaseOrder entity) {
+		return new PurchaseOrderBO(entity);
 	}
 
-	private List<MyEntityBO> convert(Iterable<MyEntity> entities) {
+	private List<PurchaseOrderBO> convert(Iterable<PurchaseOrder> entities) {
 		return StreamSupport.stream(entities.spliterator(), false)
-			.map(MyEntityBO::new)
+			.map(PurchaseOrderBO::new)
 			.collect(Collectors.toList());
 	}
 }

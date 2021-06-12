@@ -2,12 +2,12 @@ package sk.lacike.example.springboot.common;
 
 import java.util.Objects;
 
-public interface Entity<P> {
+public interface BasicEntity<P> {
 
 	P getId();
 	void setId(P id);
 
-	default boolean isSameRecord(Entity<P> other) {
+	default boolean isSameRecord(BasicEntity<P> other) {
 		if (other == null) {
 			return false;
 		}

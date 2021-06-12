@@ -15,7 +15,7 @@ import com.mysema.query.jpa.impl.JPAQuery;
 import com.mysema.query.types.expr.BooleanExpression;
 import com.mysema.query.types.path.EntityPathBase;
 
-public abstract class RepositoryWithTranslationImpl<E extends Entity<P>, P, T extends AbstractTranslation<P>, Q1 extends EntityPathBase<E>, Q2 extends EntityPathBase<T>> implements RepositoryWithTranslation<E, P, T> {
+public abstract class RepositoryWithTranslationImpl<E extends BasicEntity<P>, P, T extends AbstractTranslation<P>, Q1 extends EntityPathBase<E>, Q2 extends EntityPathBase<T>> implements RepositoryWithTranslation<E, P, T> {
 
 	@PersistenceContext
 	private EntityManager em;
@@ -26,7 +26,7 @@ public abstract class RepositoryWithTranslationImpl<E extends Entity<P>, P, T ex
 	protected abstract Q2 translationPath();
 	protected abstract BooleanExpression whereParentIdEquals(Q2 translationPath, P parentId);
 
-	public RepositoryWithTranslationImpl() {
+	protected RepositoryWithTranslationImpl() {
 		Type genericSuperclass = getClass().getGenericSuperclass();
 		if (!(genericSuperclass instanceof ParameterizedType)) {
 			throw new IllegalArgumentException("Unable to determine entity class for repository " + getClass().getName());
@@ -36,7 +36,7 @@ public abstract class RepositoryWithTranslationImpl<E extends Entity<P>, P, T ex
 	}
 
 	@Override
-	public EntityTranslationHolder<E, T> saveHolder(EntityTranslationHolder<E, T> holder) {
+	public BasicEntityTranslationHolder<E, T> saveHolder(BasicEntityTranslationHolder<E, T> holder) {
 		E saved = em.merge(holder.getEntity());
 
 		holder.getTranslations().forEach(e -> e.setParentId(saved.getId()));
@@ -44,11 +44,11 @@ public abstract class RepositoryWithTranslationImpl<E extends Entity<P>, P, T ex
 			.map(e -> em.merge(e))
 			.collect(Collectors.toList());
 
-		return new EntityTranslationHolder<>(saved, savedTranslations);
+		return new BasicEntityTranslationHolder<>(saved, savedTranslations);
 	}
 
 	@Override
-	public Optional<EntityTranslationHolder<E, T>> findHolderById(P id) {
+	public Optional<BasicEntityTranslationHolder<E, T>> findHolderById(P id) {
 		E entity = em.find(entityClass, id);
 		if (entity == null) {
 			return Optional.empty();
@@ -59,11 +59,11 @@ public abstract class RepositoryWithTranslationImpl<E extends Entity<P>, P, T ex
 			.from(translationPath)
 			.where(whereParentIdEquals(translationPath, id))
 			.list(translationPath);
-		return Optional.of(new EntityTranslationHolder<>(entity, translations));
+		return Optional.of(new BasicEntityTranslationHolder<>(entity, translations));
 	}
 
 	@Override
-	public List<EntityTranslationHolder<E, T>> findHolderAll() {
+	public List<BasicEntityTranslationHolder<E, T>> findHolderAll() {
 		Q1 entityPath = entityPath();
 		Q2 translationPath = translationPath();
 
@@ -78,7 +78,7 @@ public abstract class RepositoryWithTranslationImpl<E extends Entity<P>, P, T ex
 			.collect(Collectors.groupingBy(AbstractTranslation::getParentId, Collectors.toList()));
 
 		return entities.stream()
-			.map(e -> new EntityTranslationHolder<>(e, translations.computeIfAbsent(e.getId(), x -> new ArrayList<>())))
+			.map(e -> new BasicEntityTranslationHolder<>(e, translations.computeIfAbsent(e.getId(), x -> new ArrayList<>())))
 			.collect(Collectors.toList());
 	}
 }

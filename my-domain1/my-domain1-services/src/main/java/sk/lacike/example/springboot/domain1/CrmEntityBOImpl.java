@@ -6,7 +6,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import lombok.experimental.Delegate;
-import sk.lacike.example.springboot.common.EntityTranslationHolder;
+import sk.lacike.example.springboot.common.BasicEntityTranslationHolder;
 
 /**
  * Business object for MyEntity. For simplification we don't create BO for each entity, we rather implement it directly
@@ -20,7 +20,7 @@ public class CrmEntityBOImpl implements CrmEntityBO {
 
 	private final Set<CrmEntityTranslationBO> translations;
 
-	CrmEntityBOImpl(EntityTranslationHolder<CrmEntity, CrmEntityTranslation> holder) {
+	CrmEntityBOImpl(BasicEntityTranslationHolder<CrmEntity, CrmEntityTranslation> holder) {
 		this(holder.getEntity(), holder.getTranslations());
 	}
 
@@ -41,8 +41,8 @@ public class CrmEntityBOImpl implements CrmEntityBO {
 		return translations;
 	}
 
-	EntityTranslationHolder<CrmEntity, CrmEntityTranslation> unwrap() {
-		return new EntityTranslationHolder<>(entity, translations.stream()
+	BasicEntityTranslationHolder<CrmEntity, CrmEntityTranslation> unwrap() {
+		return new BasicEntityTranslationHolder<>(entity, translations.stream()
 			.map(CrmEntityTranslationBOImpl.class::cast)
 			.map(CrmEntityTranslationBOImpl::unwrap)
 			.collect(Collectors.toSet()));

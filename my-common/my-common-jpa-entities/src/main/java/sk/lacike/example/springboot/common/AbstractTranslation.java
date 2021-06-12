@@ -4,7 +4,7 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
-public abstract class AbstractTranslation<P> implements Entity<TranslationPk<P>> {
+public abstract class AbstractTranslation<P> implements BasicEntity<TranslationPk<P>> {
 
 	@EmbeddedId
 	private TranslationPk<P> id;

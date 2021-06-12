@@ -9,8 +9,11 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class MyEntityJson {
+public class PurchaseOrderJson {
+
 	private Integer id;
-	private String name;
 	private String description;
+
+	private String ownerId;
+
 }

@@ -8,7 +8,7 @@ import javax.transaction.Transactional;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import sk.lacike.example.springboot.common.EntityTranslationHolder;
+import sk.lacike.example.springboot.common.BasicEntityTranslationHolder;
 
 @Service
 @AllArgsConstructor
@@ -29,7 +29,7 @@ public class CrmEntityServiceImpl implements CrmEntityService {
 	@Transactional
 	@Override
 	public CrmEntityBO save(CrmEntityBO entityBO) {
-		EntityTranslationHolder<CrmEntity, CrmEntityTranslation> saved = repository.saveHolder(convert(entityBO));
+		BasicEntityTranslationHolder<CrmEntity, CrmEntityTranslation> saved = repository.saveHolder(convert(entityBO));
 
 		return convert(saved);
 	}
@@ -46,15 +46,15 @@ public class CrmEntityServiceImpl implements CrmEntityService {
 			.orElseThrow(() -> new IllegalArgumentException("MyEntity not found by id=" + id)));
 	}
 
-	private EntityTranslationHolder<CrmEntity, CrmEntityTranslation> convert(CrmEntityBO entityBO) {
+	private BasicEntityTranslationHolder<CrmEntity, CrmEntityTranslation> convert(CrmEntityBO entityBO) {
 		return ((CrmEntityBOImpl) entityBO).unwrap();
 	}
 
-	private CrmEntityBO convert(EntityTranslationHolder<CrmEntity, CrmEntityTranslation> holder) {
+	private CrmEntityBO convert(BasicEntityTranslationHolder<CrmEntity, CrmEntityTranslation> holder) {
 		return new CrmEntityBOImpl(holder);
 	}
 
-	private List<CrmEntityBO> convert(Iterable<EntityTranslationHolder<CrmEntity, CrmEntityTranslation>> entities) {
+	private List<CrmEntityBO> convert(Iterable<BasicEntityTranslationHolder<CrmEntity, CrmEntityTranslation>> entities) {
 		return StreamSupport.stream(entities.spliterator(), false)
 			.map(CrmEntityBOImpl::new)
 			.collect(Collectors.toList());

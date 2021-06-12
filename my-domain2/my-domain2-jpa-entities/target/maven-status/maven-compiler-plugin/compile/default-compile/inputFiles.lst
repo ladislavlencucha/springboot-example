@@ -1,2 +1,2 @@
-/home/llencucha/projects/springboot-example/my-domain2/my-domain2-jpa-entities/target/generated-sources/querydsl/sk/lacike/example/springboot/domain2/QMyEntity.java
-/home/llencucha/projects/springboot-example/my-domain2/my-domain2-jpa-entities/src/main/java/sk/lacike/example/springboot/domain2/MyEntity.java
+/home/llencucha/projects/springboot-example/my-domain2/my-domain2-jpa-entities/src/main/java/sk/lacike/example/springboot/domain2/PurchaseOrder.java
+/home/llencucha/projects/springboot-example/my-domain2/my-domain2-jpa-entities/target/generated-sources/querydsl/sk/lacike/example/springboot/domain2/QPurchaseOrder.java

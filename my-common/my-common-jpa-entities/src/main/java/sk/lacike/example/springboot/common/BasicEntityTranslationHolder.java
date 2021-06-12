@@ -9,7 +9,7 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 @Builder
-public class EntityTranslationHolder<E extends Entity<?>, T extends AbstractTranslation<?>> {
+public class BasicEntityTranslationHolder<E extends BasicEntity<?>, T extends AbstractTranslation<?>> {
 
 	private final E entity;
 	private final Collection<T> translations;
