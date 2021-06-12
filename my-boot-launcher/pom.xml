@@ -47,6 +47,18 @@
 			<version>${project.version}</version>
 			<scope>compile</scope>
 		</dependency>
+		<dependency>
+			<groupId>sk.lacike.example.springboot</groupId>
+			<artifactId>my-domain3-rest</artifactId>
+			<version>${project.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>sk.lacike.example.springboot</groupId>
+			<artifactId>my-crossdomain-rest</artifactId>
+			<version>${project.version}</version>
+			<scope>compile</scope>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

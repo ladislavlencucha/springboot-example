@@ -10,8 +10,8 @@ public class SimulationResultBOFactoryImpl implements SimulationResultBOFactory 
 
 	@Override
 	@ObjectFactory
-	public SimulationResultBO createPurchaseOrderBO() {
-		return new SimulationResultBOImpl();
+	public PurchaseOrderSimulationResultBO createPurchaseOrderBO() {
+		return new PurchaseOrderSimulationResultBOImpl();
 	}
 
 }

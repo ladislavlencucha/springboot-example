@@ -5,6 +5,6 @@ import org.mapstruct.ObjectFactory;
 public interface SimulationResultBOFactory {
 
 	@ObjectFactory
-	SimulationResultBO createPurchaseOrderBO();
+	PurchaseOrderSimulationResultBO createPurchaseOrderBO();
 
 }

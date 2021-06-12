@@ -15,7 +15,7 @@ import sk.lacike.example.springboot.common.ResultListJson;
 public class PurchaseOrderController {
 
 	private final PurchaseOrderService service;
-	private final PurchaseOrderMapper mapper;
+	private final PurchaseOrderJsonMapper mapper;
 
 	@GetMapping("/purchase-orders")
 	public ResultListJson<PurchaseOrderJson> findAll() {

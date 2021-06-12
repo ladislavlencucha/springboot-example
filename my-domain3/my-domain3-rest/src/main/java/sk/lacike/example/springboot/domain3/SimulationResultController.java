@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RestController;
 import sk.lacike.example.springboot.common.ResultListJson;
 
 @RestController
-@RequestMapping("/api/v1/crm-entities")
+@RequestMapping("/api/v1")
 @AllArgsConstructor
 public class SimulationResultController {
 
 	private final SimulationResultService service;
-	private final SimulationResultMapper mapper;
+	private final SimulationResultJsonMapper mapper;
 
-	@GetMapping
+	@GetMapping("/simulation-results")
 	public ResultListJson<SimulationResultJson> findAll() {
 		Iterable<SimulationResult> result = service.findAll();
 
@@ -26,14 +26,23 @@ public class SimulationResultController {
 			.build();
 	}
 
-	@GetMapping("/{id}")
+	@GetMapping("/simulation-results/{id}")
 	public SimulationResultJson findById(@PathVariable Integer id) {
 		SimulationResult result = service.findById(id);
 
 		return mapper.map(result);
 	}
 
-	@PostMapping
+	@GetMapping("/crm-entities/{requestorId}/simulation-results")
+	public ResultListJson<SimulationResultJson> findByRequestorId(@PathVariable Integer requestorId) {
+		Iterable<SimulationResult> result = service.findByRequestorId(requestorId);
+
+		return ResultListJson.<SimulationResultJson>builder()
+			.items(mapper.map(result))
+			.build();
+	}
+
+	@PostMapping("/simulation-results")
 	public SimulationResultJson saveEntity(@RequestBody SimulationResultJson simulationResultJson) {
 		SimulationResult entityBO = mapper.map(simulationResultJson);
 		SimulationResult saved = service.save(entityBO);

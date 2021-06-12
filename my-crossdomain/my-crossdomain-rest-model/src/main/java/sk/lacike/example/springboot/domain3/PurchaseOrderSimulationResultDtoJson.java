@@ -4,17 +4,15 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import sk.lacike.example.springboot.domain2.PurchaseOrderJson;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class SimulationResultJson {
+public class PurchaseOrderSimulationResultDtoJson {
 
-	private Integer id;
-	private String name;
-	private String description;
-
-	private Integer requestorId;
+	private PurchaseOrderJson purchaseOrder;
+	private SimulationResultJson simulationResult;
 
 }

@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface SimulationResultRepository extends CrudRepository<SimulationResult, Integer> {
 
-	// Spring data generated implementation
+	Iterable<SimulationResult> findByRequestorId(Integer ownerId);
 
 }

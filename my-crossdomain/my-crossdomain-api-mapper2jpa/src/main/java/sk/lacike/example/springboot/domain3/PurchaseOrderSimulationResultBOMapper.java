@@ -8,16 +8,20 @@ import sk.lacike.example.springboot.domain1.CrmEntityBOFactory;
 import sk.lacike.example.springboot.domain1.CrmEntityBOMapper;
 
 @Mapper(componentModel = "spring", uses = {CrmEntityBOMapper.class, CrmEntityBOFactory.class, SimulationResultBOFactory.class} )
-public interface SimulationResultBOMapper {
+public interface PurchaseOrderSimulationResultBOMapper {
 
 	@Mapping(source = "entity.id.simulationResultId", target = "simulationResultId")
 	@Mapping(source = "entity.id.purchaseOrderId", target = "purchaseOrderId")
-	SimulationResultBO map(PurchaseOrderSimulationResult entity);
+	PurchaseOrderSimulationResultBO map(PurchaseOrderSimulationResult entity);
 
-	List<SimulationResultBO> map(Iterable<PurchaseOrderSimulationResult> entities);
+	@Mapping(source = "dto.simulationResult.id", target = "simulationResultId")
+	@Mapping(source = "dto.purchaseOrder.id", target = "purchaseOrderId")
+	PurchaseOrderSimulationResultBO map(PurchaseOrderSimulationResultDto dto);
+
+	List<PurchaseOrderSimulationResultBO> map(Iterable<PurchaseOrderSimulationResult> entities);
 
 	@Mapping(source = "bo.simulationResultId", target = "id.simulationResultId")
 	@Mapping(source = "bo.purchaseOrderId", target = "id.purchaseOrderId")
-	PurchaseOrderSimulationResult map(SimulationResultBO bo);
+	PurchaseOrderSimulationResult map(PurchaseOrderSimulationResultBO bo);
 
 }

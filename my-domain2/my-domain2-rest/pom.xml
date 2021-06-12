@@ -26,6 +26,12 @@
 		</dependency>
 		<dependency>
 			<groupId>sk.lacike.example.springboot</groupId>
+			<artifactId>my-domain2-rest-mapper2jpa</artifactId>
+			<version>${project.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>sk.lacike.example.springboot</groupId>
 			<artifactId>my-domain2-service</artifactId>
 			<version>${project.version}</version>
 			<scope>compile</scope>

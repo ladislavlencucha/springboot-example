@@ -28,5 +28,6 @@
 		<module>my-domain2-service</module>
 		<module>my-domain2-dao</module>
 		<module>my-domain2-jpa-entities</module>
+		<module>my-domain2-rest-mapper2jpa</module>
 	</modules>
 </project>

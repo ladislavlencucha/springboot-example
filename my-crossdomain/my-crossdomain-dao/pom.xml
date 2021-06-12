@@ -30,6 +30,18 @@
 			<version>${project.version}</version>
 			<scope>compile</scope>
 		</dependency>
+		<dependency>
+			<groupId>sk.lacike.example.springboot</groupId>
+			<artifactId>my-domain2-jpa-entities</artifactId>
+			<version>${project.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>sk.lacike.example.springboot</groupId>
+			<artifactId>my-domain3-jpa-entities</artifactId>
+			<version>${project.version}</version>
+			<scope>compile</scope>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.data</groupId>

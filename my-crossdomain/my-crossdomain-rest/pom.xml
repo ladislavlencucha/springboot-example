@@ -30,6 +30,12 @@
 			<version>${project.version}</version>
 			<scope>compile</scope>
 		</dependency>
+		<dependency>
+			<groupId>sk.lacike.example.springboot</groupId>
+			<artifactId>my-crossdomain-rest-mapper2jpa</artifactId>
+			<version>${project.version}</version>
+			<scope>compile</scope>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>

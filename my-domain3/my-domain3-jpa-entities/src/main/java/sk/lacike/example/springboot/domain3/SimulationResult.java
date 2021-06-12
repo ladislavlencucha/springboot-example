@@ -24,6 +24,6 @@ public class SimulationResult implements BasicEntity<Integer> {
 
 	@JoinColumn(name = "requestor_id")
 	@ManyToOne
-	private CrmEntity  requestor;
+	private CrmEntity requestor;
 
 }

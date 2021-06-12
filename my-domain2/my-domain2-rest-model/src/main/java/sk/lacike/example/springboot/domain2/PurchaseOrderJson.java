@@ -14,6 +14,6 @@ public class PurchaseOrderJson {
 	private Integer id;
 	private String description;
 
-	private String ownerId;
+	private Integer ownerId;
 
 }

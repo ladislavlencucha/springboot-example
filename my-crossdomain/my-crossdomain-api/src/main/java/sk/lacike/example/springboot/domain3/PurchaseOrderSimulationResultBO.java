@@ -1,6 +1,6 @@
 package sk.lacike.example.springboot.domain3;
 
-public interface SimulationResultBO {
+public interface PurchaseOrderSimulationResultBO {
 
 	Integer getSimulationResultId();
 

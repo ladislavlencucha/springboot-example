@@ -28,4 +28,9 @@ public class SimulationResultServiceImpl implements SimulationResultService {
 			.orElseThrow(() -> new IllegalArgumentException("Simulation result not found by id=" + id));
 	}
 
+	@Override
+	public Iterable<SimulationResult> findByRequestorId(Integer requestorId) {
+		return repository.findByRequestorId(requestorId);
+	}
+
 }

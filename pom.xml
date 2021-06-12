@@ -33,6 +33,7 @@
 		<module>my-domain3</module>
 		<module>my-crossdomain</module>
 		<module>my-boot-launcher</module>
+		<module>my-crossdomain/my-crossdomain-rest-mapper2jpa</module>
 	</modules>
 
 	<dependencyManagement>
