@@ -1,4 +1,4 @@
-package sk.lacike.example.springboot.common;
+package sk.lacike.example.springboot.domain3;
 
 import java.io.Serializable;
 
@@ -12,9 +12,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class TranslationPk<P extends Serializable> implements Serializable {
+public class PurchaseOrderSimulationResultPk implements Serializable {
 
-	private P parentId;
-	private String languageCode;
+	private Integer purchaseOrderId;
+	private Integer simulationResultId;
 
 }

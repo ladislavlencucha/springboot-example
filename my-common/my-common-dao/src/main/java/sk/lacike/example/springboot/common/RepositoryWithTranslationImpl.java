@@ -1,5 +1,6 @@
 package sk.lacike.example.springboot.common;
 
+import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ import com.mysema.query.jpa.impl.JPAQuery;
 import com.mysema.query.types.expr.BooleanExpression;
 import com.mysema.query.types.path.EntityPathBase;
 
-public abstract class RepositoryWithTranslationImpl<E extends BasicEntity<P>, P, T extends AbstractTranslation<P>, Q1 extends EntityPathBase<E>, Q2 extends EntityPathBase<T>> implements RepositoryWithTranslation<E, P, T> {
+public abstract class RepositoryWithTranslationImpl<E extends BasicEntity<P>, P extends Serializable, T extends AbstractTranslation<P>, Q1 extends EntityPathBase<E>, Q2 extends EntityPathBase<T>> implements RepositoryWithTranslation<E, P, T> {
 
 	@PersistenceContext
 	private EntityManager em;

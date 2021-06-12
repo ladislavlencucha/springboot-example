@@ -10,23 +10,24 @@
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
-	<artifactId>my-domain3</artifactId>
+	<artifactId>my-crossdomain</artifactId>
 	<packaging>pom</packaging>
-	<description>Module wrapping whole DOMAIN-3</description>
+	<description>Module wrapping DOMAIN 2 and 3 intersecting functionalities</description>
 
 	<properties>
 		<maven.compiler.source>8</maven.compiler.source>
 		<maven.compiler.target>8</maven.compiler.target>
 	</properties>
-
+	
 	<modules>
-		<module>my-domain3-rest</module>
-		<module>my-domain3-rest-model</module>
-		<module>my-domain3-api-bundled</module>
-		<module>my-domain3-api-mapper2jpa</module>
-		<module>my-domain3-api</module>
-		<module>my-domain3-service</module>
-		<module>my-domain3-dao</module>
-		<module>my-domain3-jpa-entities</module>
+		<module>my-crossdomain-rest</module>
+		<module>my-crossdomain-rest-model</module>
+		<module>my-crossdomain-api-bundled</module>
+		<module>my-crossdomain-api-mapper2jpa</module>
+		<module>my-crossdomain-api</module>
+		<module>my-crossdomain-service</module>
+		<module>my-crossdomain-dao</module>
+		<module>my-crossdomain-jpa-entities</module>
 	</modules>
+
 </project>

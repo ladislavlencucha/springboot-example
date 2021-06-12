@@ -1,10 +1,12 @@
 package sk.lacike.example.springboot.common;
 
+import java.io.Serializable;
+
 import javax.persistence.EmbeddedId;
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
-public abstract class AbstractTranslation<P> implements BasicEntity<TranslationPk<P>> {
+public abstract class AbstractTranslation<P extends Serializable> implements BasicEntity<TranslationPk<P>> {
 
 	@EmbeddedId
 	private TranslationPk<P> id;

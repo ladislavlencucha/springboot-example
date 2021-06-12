@@ -27,42 +27,12 @@
 	</properties>
 
 	<modules>
-		<module>my-common/my-common-rest-model</module>
-		<module>my-common/my-common-security</module>
-		<module>my-common/my-common-settings</module>
-		<module>my-common/my-common-settings-hardcoded</module>
 		<module>my-common</module>
-		<module>my-domain1/my-domain1-rest</module>
-		<module>my-domain1/my-domain1-rest-model</module>
-		<module>my-domain1/my-domain1-api-bundled</module>
-		<module>my-domain1/my-domain1-api-mapper2jpa</module>
-		<module>my-domain1/my-domain1-api</module>
-		<module>my-domain1/my-domain1-service</module>
-		<module>my-domain1/my-domain1-dao</module>
-		<module>my-domain1/my-domain1-jpa-entities</module>
 		<module>my-domain1</module>
-		<module>my-domain2/my-domain2-rest</module>
-		<module>my-domain2/my-domain2-rest-model</module>
-		<module>my-domain2/my-domain2-api-bundled</module>
-		<module>my-domain2/my-domain2-api-mapper2jpa</module>
-		<module>my-domain2/my-domain2-api</module>
-		<module>my-domain2/my-domain2-service</module>
-		<module>my-domain2/my-domain2-dao</module>
-		<module>my-domain2/my-domain2-jpa-entities</module>
 		<module>my-domain2</module>
-		<module>my-domain3/my-domain3-rest</module>
-		<module>my-domain3/my-domain3-rest-model</module>
-		<module>my-domain3/my-domain3-api-bundled</module>
-		<module>my-domain3/my-domain3-api-mapper2jpa</module>
-		<module>my-domain3/my-domain3-api</module>
-		<module>my-domain3/my-domain3-services</module>
-		<module>my-domain3/my-domain3-dao</module>
-		<module>my-domain3/my-domain3-jpa-entities</module>
 		<module>my-domain3</module>
+		<module>my-crossdomain</module>
 		<module>my-boot-launcher</module>
-		<module>my-common/my-common-dao</module>
-		<module>my-common/my-common-jpa-entities</module>
-		<module>my-common/my-common-entities</module>
 	</modules>
 
 	<dependencyManagement>

@@ -18,4 +18,13 @@
 		<maven.compiler.target>8</maven.compiler.target>
 	</properties>
 
+	<modules>
+		<module>my-common-rest-model</module>
+		<module>my-common-security</module>
+		<module>my-common-settings</module>
+		<module>my-common-settings-hardcoded</module>
+		<module>my-common-dao</module>
+		<module>my-common-jpa-entities</module>
+		<module>my-common-entities</module>
+	</modules>
 </project>
