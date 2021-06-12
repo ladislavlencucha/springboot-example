@@ -9,10 +9,10 @@ import org.mapstruct.Mapping;
 public interface PurchaseOrderMapper {
 
 	@Mapping(source = "owner.id", target = "ownerId")
-	PurchaseOrderJson map(PurchaseOrderBO entity);
-	List<PurchaseOrderJson> map(List<PurchaseOrderBO> entityBOs);
+	PurchaseOrderJson map(PurchaseOrder entity);
+	List<PurchaseOrderJson> map(Iterable<PurchaseOrder> entities);
 
 	@Mapping(source = "ownerId", target = "owner.id")
-	PurchaseOrderBO map(PurchaseOrderJson json);
+	PurchaseOrder map(PurchaseOrderJson json);
 
 }
