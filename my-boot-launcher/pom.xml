@@ -18,10 +18,44 @@
 		<java.version>1.8</java.version>
 	</properties>
 
+	<profiles>
+		<profile>
+			<id>hardcoded</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<dependencies>
+				<dependency>
+					<groupId>sk.lacike.example.springboot</groupId>
+					<artifactId>my-common-settings-hardcoded</artifactId>
+					<version>${project.version}</version>
+				</dependency>
+			</dependencies>
+		</profile>
+	</profiles>
+
 	<dependencies>
 		<dependency>
 			<groupId>sk.lacike.example.springboot</groupId>
 			<artifactId>my-domain1-rest</artifactId>
+			<version>${project.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>sk.lacike.example.springboot</groupId>
+			<artifactId>my-domain2-rest</artifactId>
+			<version>${project.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>sk.lacike.example.springboot</groupId>
+			<artifactId>my-domain3-rest</artifactId>
+			<version>${project.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>sk.lacike.example.springboot</groupId>
+			<artifactId>my-crossdomain-rest</artifactId>
 			<version>${project.version}</version>
 			<scope>compile</scope>
 		</dependency>
