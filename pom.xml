@@ -24,6 +24,7 @@
 		<swagger.version>3.0.0</swagger.version>
 		<guava.version>30.1-jre</guava.version>
 		<querydsl.version>3.7.4</querydsl.version>
+		<antlr4.version>4.9.2</antlr4.version>
 	</properties>
 
 	<modules>
@@ -120,6 +121,11 @@
 				<artifactId>querydsl-jpa</artifactId>
 				<version>${querydsl.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>org.antlr</groupId>
+				<artifactId>antlr4-runtime</artifactId>
+				<version>${antlr4.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
@@ -182,6 +188,18 @@
 						<!-- other annotation processors -->
 					</annotationProcessorPaths>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.antlr</groupId>
+				<artifactId>antlr4-maven-plugin</artifactId>
+				<version>${antlr4.version}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>antlr4</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
